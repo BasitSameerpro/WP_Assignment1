@@ -85,6 +85,7 @@ nav{
     position:absolute;
     top:20px;
     left:25%;
+    background: transparent;
 
 }
 .Hero-Page .Hero-content #Quote{
@@ -92,6 +93,7 @@ nav{
     color:white;
     left:90%;
     top:50%;
+    background: transparent;
 }
 .Sliding-content{
     width:100%;
