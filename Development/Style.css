@@ -115,16 +115,24 @@ nav{
 }
 .Hero-Page .Hero-content #Description{
     position:absolute;
-    top:15%;
-    left:10%;
+    top:30%;
+    left:20%;
     background: transparent;
-    font-size: 2vw;
+    font-size: 1.3vw;
     color:#fff;
-
+    opacity:0;
+    transform: translateY(30px);
+    animation: slideFadeIn2 6s ease-out forwards;
+}
+@keyframes slideFadeIn2{
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
 }
 .Hero-Page .Hero-content .button{
     position: absolute; /* Place the button on top of the image */
-    top: 40%; /* Adjust to desired position */
+    top: 55%; /* Adjust to desired position */
     left: 10%;
     padding: 5px 10px;
     background-color: rgb(223, 172, 77) ;
