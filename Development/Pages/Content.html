@@ -55,7 +55,8 @@ header .menu{
     inset:0 0 0 0;
     overflow: hidden;
     opacity:0;
-    transition: .5s;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
 }
 .slider .list .item img{
     width:100%;
@@ -91,6 +92,7 @@ header .menu{
 }
 .slider .List .item.active{
     opacity: 1;
+    visibility: visible;
     z-index:10;
 }
 @keyframes showContent{
@@ -115,6 +117,24 @@ header .menu{
 .slider .List .item.active p:nth-child(3){
     animation-duration: 1.3s;
 }
+/* Add these styles to your existing CSS */
+.learn-more-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: white;
+    color: #24252a;
+}
 .arrows{
     position:absolute;
     top:30%;
@@ -122,19 +142,22 @@ header .menu{
     z-index: 100;
 }
 .arrows button{
-    background-color: #eee5;
+    background-color: rgba(238,238,238,0.3);
     border:none;
     font-family: monospace;
     width:40px;
-    border-radius: 5px;
+    height: 40px;
+    border-radius: 10px;
     font-size: x-large;
     color:#eee;
-    transition:.5s;
+    cursor:pointer;
+    transition:all .5s ease;
 
 }
 .arrows button:hover{
-    background-color: #eee;
-    color:black
+    background-color: rgba(238,238,238,0.8);
+    color:black;
+    transform: scale(1.1);
 }
 .thumbnail{
     position:absolute;
@@ -183,6 +206,91 @@ header .menu{
     }
 }
     </style>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    let items = document.querySelectorAll('.slider .list .item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    let thumbnails = document.querySelectorAll('.thumbnail .item');
+    let countItem = items.length;
+    let itemActive = 0;
+    let autoplayInterval;
+    const autoplayDelay = 3000; // Time in milliseconds between slides (3 seconds)
+
+    // Function to move to next slide
+    function nextSlide() {
+        itemActive = itemActive + 1;
+        if(itemActive >= countItem) {
+            itemActive = 0;
+        }
+        showSlider();
+    }
+
+    // Function to move to previous slide
+    function prevSlide() {
+        itemActive = itemActive - 1;
+        if(itemActive < 0) {
+            itemActive = countItem - 1;
+        }
+        showSlider();
+    }
+
+    // Start autoplay
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, autoplayDelay);
+    }
+
+    // Stop autoplay
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event Next Click
+    next.onclick = function() {
+        stopAutoplay(); // Stop autoplay when manually navigating
+        nextSlide();
+        startAutoplay(); // Restart autoplay
+    }
+
+    // Event Prev Click
+    prev.onclick = function() {
+        stopAutoplay(); // Stop autoplay when manually navigating
+        prevSlide();
+        startAutoplay(); // Restart autoplay
+    }
+
+    // Show Slider
+    function showSlider() {
+        // Remove active class from current items
+        let itemActiveOld = document.querySelector('.slider .list .item.active');
+        let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+        
+        itemActiveOld.classList.remove('active');
+        thumbnailActiveOld.classList.remove('active');
+
+        // Add active class to new items
+        items[itemActive].classList.add('active');
+        thumbnails[itemActive].classList.add('active');
+    }
+
+    // Add click events to thumbnails
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.onclick = function() {
+            stopAutoplay(); // Stop autoplay when manually navigating
+            itemActive = index;
+            showSlider();
+            startAutoplay(); // Restart autoplay
+        }
+    });
+
+    // Pause autoplay when hovering over slider
+    document.querySelector('.slider').addEventListener('mouseenter', stopAutoplay);
+    document.querySelector('.slider').addEventListener('mouseleave', startAutoplay);
+
+    // Start autoplay when page loads
+    startAutoplay();
+});
+    </script>
 </head>
 <body>
 
@@ -212,6 +320,9 @@ header .menu{
                         <p>Explore the workouts with us.Great collection
                         to help you get you staretd
                         </p>
+                        <a href="../Pages/Nutrition.html">
+                            <button class="learn-more-btn">Learn More</button>
+                        </a>
                     </div>
             </div>
             <div class="item">
@@ -222,6 +333,9 @@ header .menu{
                     <p>Our definition of healthy food.
                     To explore more click here
                     </p>
+                    <a href="../Pages/Nutrition.html">
+                        <button class="learn-more-btn">Learn More</button>
+                    </a>
                 </div>
             </div>
             <div class="item">
@@ -232,6 +346,9 @@ header .menu{
                     <p>Find out about your BMI to know
                     if you are healthy or not
                     </p>
+                    <a href="../Pages/Nutrition.html">
+                        <button class="learn-more-btn">Learn More</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -262,7 +379,6 @@ header .menu{
             </div>
         </div>
     </div>
-    <script src="Contentjs.js"></script>
 
 </body>
 </html>
