@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let countItem = items.length;
     let itemActive = 0;
     let autoplayInterval;
-    const autoplayDelay = 3000; // Time in milliseconds between slides (3 seconds)
+    const autoplayDelay = 4000; // Time in milliseconds between slides (3 seconds)
 
     // Function to move to next slide
     function nextSlide() {
@@ -253,6 +253,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add active class to new items
         items[itemActive].classList.add('active');
         thumbnails[itemActive].classList.add('active');
+        thumbnails[itemActive].scrollIntoView({
+        behavior: 'smooth',  // Optional for smooth scrolling
+        block: 'nearest',    // Aligns the thumbnail at the nearest edge
+        inline: 'center'     // Center the thumbnail horizontally in the container
+    });
     }
 
     // Add click events to thumbnails
@@ -295,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="slider">
         <div class="list">
             <div class="item active">
-                    <img src="../Images/Gym_Photo1.jpg">
+                    <img src="../Images/Push_Up.jpg">
                     <div class='Content'>
                         <p>Design</p>
                         <h2>Workouts</h2>
@@ -305,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
             </div>
             <div class="item">
-                <img src="../Images/Nutrition.jpg">
+                <img src="../Images/Squats.jpg">
                 <div class='Content'>
                     <p>Design</p>
                     <h2>Nutrition</h2>
@@ -315,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <div class="item">
-                <img src="../Images/About_you.jpg">
+                <img src="../Images/Planks.jpg">
                 <div class="Content">
                     <p>Design</p>
                     <h2>About You</h2>
@@ -325,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <div class="item">
-                <img src="../Images/Nutrition.jpg">
+                <img src="../Images/Lunges.jpg">
                 <div class='Content'>
                     <p>Design</p>
                     <h2>Nutrition</h2>
@@ -335,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <div class="item">
-                <img src="../Images/Nutrition.jpg">
+                <img src="../Images/Crunches.jpg">
                 <div class='Content'>
                     <p>Design</p>
                     <h2>Nutrition</h2>
@@ -344,6 +349,57 @@ document.addEventListener('DOMContentLoaded', function() {
                     </p>
                 </div>
             </div>
+            <div class="item">
+                <img src="../Images/Bench_press.jpg">
+                <div class='Content'>
+                    <p>Design</p>
+                    <h2>Nutrition</h2>
+                    <p>Our definition of healthy food.
+                    To explore more click here
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Images/Dumbell_Curls.jpg">
+                <div class='Content'>
+                    <p>Design</p>
+                    <h2>Nutrition</h2>
+                    <p>Our definition of healthy food.
+                    To explore more click here
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Images/Dead_Lifting.jpg">
+                <div class='Content'>
+                    <p>Design</p>
+                    <h2>Nutrition</h2>
+                    <p>Our definition of healthy food.
+                    To explore more click here
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Images/Leg_press.jpg">
+                <div class='Content'>
+                    <p>Design</p>
+                    <h2>Nutrition</h2>
+                    <p>Our definition of healthy food.
+                    To explore more click here
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Images/Sled_push.jpg">
+                <div class='Content'>
+                    <p>Design</p>
+                    <h2>Nutrition</h2>
+                    <p>Our definition of healthy food.
+                    To explore more click here
+                    </p>
+                </div> 
+            </div>       
+            
             
         </div>
         <div class="arrows">
@@ -352,24 +408,64 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="thumbnail">
             <div class="item active">
-                <img src="../Images/Gym_Photo1.jpg">
+                <img src="../Images/Push_Up.jpg">
                 <div class="content">
                     Do not know
-                </div>
-                
+                </div>    
             </div>
             <div class="item">
-                <img src="../Images/Nutrition.jpg">
+                <img src="../Images/Squats.jpg">
                 <div class="content">
                     Do not know
                 </div>
             </div>
             <div class="item">
-                <img src="../Images/About_you.jpg">
+                <img src="../Images/Planks.jpg">
                 <div class="content">
                     Do not know
                 </div>
             </div>
+            <div class="item">
+                <img src="../Images/Lunges.jpg">
+                <div class="content">
+                    Do not know
+                </div>    
+            </div>
+            <div class="item">
+                <img src="../Images/Crunches.jpg">
+                <div class="content">
+                    Do not know
+                </div>     
+            </div>
+            <div class="item">
+                <img src="../Images/Bench_press.jpg">
+                <div class="content">
+                    Do not know
+                </div>     
+            </div>
+            <div class="item">
+                <img src="../Images/Dumbell_Curls.jpg">
+                <div class="content">
+                    Do not know
+                </div>    
+            </div>
+            <div class="item">
+                <img src="../Images/Dead_Lifting.jpg">
+                <div class="content">
+                    Do not know
+                </div>    
+            </div>
+            <div class="item">
+                <img src="../Images/Leg_press.jpg">
+                <div class="content">
+                    Do not know
+                </div>     
+            </div>
+            <div class="item">
+                <img src="../Images/Sled_push.jpg">
+                <div class="content">
+                    Do not know
+                </div>    
             </div>
         </div>
     </div>
