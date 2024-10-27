@@ -4,9 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workouts</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Eater&family=Oi&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @font-face {
+    font-family: 'Montserrat';
+    src: url("../Fonts/Montserrat/Montserrat-VariableFont_wght.ttf")format('truetype');
+}
+@font-face {
+    font-family: "Oleo Script";
+    src: url('../Fonts/Oleo_Script/OleoScript-Regular.ttf')format('truetype');
+}
 
 body{
     background-color: #24252a;
@@ -35,6 +40,9 @@ header{
 }
 header .Logo{
     font-weight: bold;
+    font-family: "Oleo Script", system-ui;
+    font-style: italic;
+    font-size: x-large;
 }
 header .menu{
     padding: 0;
@@ -71,7 +79,7 @@ header .menu{
     left:0;
     bottom:0;
     background-image:  linear-gradient(
-        to top, #000 40% , transparent
+        to top, rgba(0,0,0,0.3) 0% , rgba(0,0,0,0.1) 50% , transparent 100%
     );
 }
 .slider .list .item .Content{
@@ -152,6 +160,7 @@ header .menu{
     padding : 0 50px;
     box-sizing: border-box;
     overflow: auto;
+    cursor:pointer;
 }
 .thumbnail::-webkit-scrollbar{
     width:0;

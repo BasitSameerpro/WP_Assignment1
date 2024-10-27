@@ -1,102 +1,181 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeeFit</title>
+    <title>BMI Calculator/About You</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    background-color: #24252a;
-
+        @font-face {
+    font-family: 'Montserrat';
+    src: url("../Fonts/Montserrat/Montserrat-VariableFont_wght.ttf")format('truetype');
 }
-body{
+@font-face {
+    font-family: "Oleo Script";
+    src: url('../Fonts/Oleo_Script/OleoScript-Regular.ttf')format('truetype');
+}
+        body{
     background-color: #24252a;
     font-family: "Montserrat", sans-serif;
+    color:white;
     font-optical-sizing:initial;
+    margin:0;
 
+}
+a{
+    list-style: none;
+    text-decoration: none;
+    color:white;
 }
 header{
-    padding:5px 3%;    
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width:100%;
-    color:white;
-    border-bottom: 2px solid #ffffff33;
-}
-
-.Logo{
-    font-family: "Oleo Script", system-ui;
-    font-weight: 400;
-    font-style:italic;
-    flex:1;
-    font-size:x-large;
-}
-nav{
-    display:flex;
-    flex:2;
+    width:1600px;
+    max-width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 50px;
     justify-content: center;
+    align-items: center;
+    position:relative;
+    z-index:100;
+}
+header .Logo{
+    font-family: "Oleo Script" , system-ui;
+    font-style: italic;
+    font-size: x-large;
 
 }
-.nav-list{
-    display:flex;
-    list-style: none;
-    justify-content: space-between;
+header .menu{
     padding: 0;
     margin:0;
-    font-size: large;
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    gap:20px;
 }
-.nav-list li{
-    display:inline-block;
-    margin-right:20px;
+.main-content{
+    position:relative;
+
 }
-.nav-list a{
-    text-decoration: none;
-    color:white;
-    white-space: nowrap;
+.Image{
+    position:absolute;
+
 }
-.nav-list a:hover{
-    color:rgb(182, 235, 235)
+.Image img{
+    margin-top: -50px;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
-.Tail{
-    text-align:right;
-    flex:1;
-    padding-left:20px;
-    font-size: larger;
+.main-content .input-values{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    margin-top:20%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    align-items: center;
+    padding:20px;
+    background-color: transparent;
+    border-radius: 20px;
     
 }
-.Tail a{
-    text-decoration: none;
-    color:White;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove spinners */
+    margin: 0; /* Remove margin */
 }
-.Tail a:hover{
-    color:rgb(182, 235, 235)
+input{
+    font-size: x-large;
+    background: transparent;
+    border:none;
+    border-bottom: 2px solid black;
+    text-decoration: none;
+    border-radius: 10px;
+
+}
+input:focus{
+    outline: none;
+}
+.input-values button{
+    font-size: x-large;
+    padding:5px;
+    background: transparent;
+    border:2px solid lightgray;
+    border-radius: 50px;
+    cursor:pointer;
+}
+.input-values button:hover{
+    background-color: black;
+    color: white;
 }
     </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("calculate-button").addEventListener("click", function() {
+            // Get the input values
+            const weight = parseFloat(document.querySelector('.Weight').value);
+            const height = parseFloat(document.querySelector('.Height').value);
+            
+            // Check if inputs are valid
+            if (isNaN(weight) || isNaN(height) || height <= 0 || weight <= 0) {
+                alert("Please enter valid weight and height.");
+                return;
+            }
+
+            // Convert height in feet to meters (1 ft = 0.3048 m)
+            const heightInMeters = height * 0.3048;
+
+            // Calculate BMI
+            const bmi = weight / (heightInMeters * heightInMeters);
+            let category;
+            let customMessage="";
+
+            // Determine BMI category
+            if (bmi < 18.5) {
+                category = "Underweight";
+                customMessage = "Eat Something or you are going to die";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = "Normal weight";
+                customMessage = "You perfect fucker but i bet you are ugly as hell";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = "Overweight";
+                customMessage = "What's up fatty";
+            } else {
+                category = "I think you should fast forever";
+            }
+
+            // Display the result
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `Your BMI is: ${bmi.toFixed(2)}<br>Category: ${category}<br>${customMessage}`; // Show BMI with category
+        });
+    });
+    </script>
 </head>
 <body>
     <header>
         <div class="Logo">
-            <h1>WeeFit</h1>
+            <a class="Logo"><h1>WeeFit</h1></a>
         </div>
-        <nav>
-            <ul class="nav-list">
+        <ul class="menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="../Pages/Workout.html">Workouts</a></li>
                 <li><a href="../Pages/Nutrition.html">Nutrition</a></li>
-                <li><a href="../Pages/contact.html">Contact Us</a></li>
+                <li><a href="../Pages/conatct.html">Contact Us</a></li>
                 <li><a href="../Pages/BMI.html">About You</a></li>
-            </ul>      
-        </nav>
+        </ul>      
         <div class="Tail">
             <a href="../Pages/About_US.html">About US</a>
         </div>
     </header>
+    <div class="main-content">
+        <div class="Image">
+        <img src="../Images/BMI_Calculator.jpg"></div>
+        <div class="input-values">
+            <input class='Weight' type="number" name = "Weight" placeholder="Weight in Kgs">
+            <input class='Height' type="number" name = "Height" placeholder="Height in ft"> 
+            <button id="calculate-button">Click to calculate</button>
+            <div class="result" id="result" style="margin-top: 20px ; color:black;"></div>
+        </div>
+    </div>
 </body>
 </html>

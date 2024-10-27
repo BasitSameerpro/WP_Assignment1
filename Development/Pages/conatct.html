@@ -1,102 +1,122 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeeFit</title>
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    background-color: #24252a;
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../Fonts/Montserrat/Montserrat-VariableFont_wght.ttf")format('truetype');
+}
+@font-face {
+    font-family: "Oleo Script";
+    src: url('../Fonts/Oleo_Script/OleoScript-Regular.ttf')format('truetype');
 }
 body{
     background-color: #24252a;
     font-family: "Montserrat", sans-serif;
+    color:white;
     font-optical-sizing:initial;
-
+    margin:0;
+    overflow: hidden;
+}
+a{
+    list-style: none;
+    text-decoration: none;
+    color:white;
 }
 header{
-    padding:5px 3%;    
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width:100%;
-    color:white;
-    border-bottom: 2px solid #ffffff33;
-}
-
-.Logo{
-    font-family: "Oleo Script", system-ui;
-    font-weight: 400;
-    font-style:italic;
-    flex:1;
-    font-size:x-large;
-}
-nav{
-    display:flex;
-    flex:2;
+    width:1600px;
+    max-width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 50px;
     justify-content: center;
-
+    align-items: center;
+    position:relative;
+    z-index:100;
 }
-.nav-list{
-    display:flex;
-    list-style: none;
-    justify-content: space-between;
+header .Logo{
+    font-family: "Oleo Script" , system-ui;
+    font-style: italic;
+    font-size: x-large;
+}
+header .menu{
     padding: 0;
     margin:0;
-    font-size: large;
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    gap:20px;
 }
-.nav-list li{
-    display:inline-block;
-    margin-right:20px;
+.main-content{
+    display:flex;
+    position: relative;
 }
-.nav-list a{
-    text-decoration: none;
-    color:white;
-    white-space: nowrap;
+.Image{
+    position: absolute;
 }
-.nav-list a:hover{
-    color:rgb(182, 235, 235)
+.Image img{
+    margin-top: -50px;;
+    width:100vw;
+    height:100vh;
+    object-fit: cover;
 }
-.Tail{
-    text-align:right;
-    flex:1;
-    padding-left:20px;
-    font-size: larger;
-    
+.Icons{
+    overflow: hidden;
+    position: absolute;
+    margin-top:20%;
+    left:45%;
+    background:transparent;
+    display: flex;
+    gap: 100px;
+    transform: translateX(-50%);
+    width: fit-content;
 }
-.Tail a{
-    text-decoration: none;
-    color:White;
-}
-.Tail a:hover{
-    color:rgb(182, 235, 235)
-}
+
+
     </style>
 </head>
 <body>
     <header>
         <div class="Logo">
-            <h1>WeeFit</h1>
+            <a class="Logo"><h1>WeeFit</h1></a>
         </div>
-        <nav>
-            <ul class="nav-list">
+        <ul class="menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="../Pages/Workout.html">Workouts</a></li>
                 <li><a href="../Pages/Nutrition.html">Nutrition</a></li>
-                <li><a href="../Pages/contact.html">Contact Us</a></li>
+                <li><a href="../Pages/conatct.html">Contact Us</a></li>
                 <li><a href="../Pages/BMI.html">About You</a></li>
-            </ul>      
-        </nav>
+        </ul>      
         <div class="Tail">
             <a href="../Pages/About_US.html">About US</a>
         </div>
     </header>
+    <div class="main-content">
+        <div class="Image">
+            <img src="../Images/Contact.jpg">
+        </div>
+        <div class="Icons">
+            <div class="Email">
+                <i class="fa fa-envelope fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="Instagram">
+                <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="Facebook">
+                <i class="fa fa-facebook fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="Twitter">
+                <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="Cell">
+                <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
