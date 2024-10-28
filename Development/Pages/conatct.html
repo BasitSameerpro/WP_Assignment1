@@ -66,7 +66,7 @@ header .menu{
     object-fit: cover;
 }
 .Icons{
-    overflow: hidden;
+    overflow: visible;
     position: absolute;
     margin-top:20%;
     left:45%;
@@ -76,9 +76,32 @@ header .menu{
     transform: translateX(-50%);
     width: fit-content;
 }
+.Icons i{
+    transition: all 0.3s ease;
+}
+.info-box{
+    position: absolute;
+    background-color: rgba(255,255,255,0.1);
+    padding :10px 20px;
+    border-radius: 10px;
+    opacity:0;
+    transform:translateX(-20px);
+    transition: all0.3s ease;
+    white-space: nowrap;
+    color:black;
+    font-size: xx-large;
+}
+.Icon-Conatiner:hover i{
+    background: rgba(255,255,255,0.1);
+    transform:scale(1.1);
+}
+.Icon-Conatiner:hover .info-box{
+    opacity:1;
+    transform: translateX(0);
+}
 
+</style>
 
-    </style>
 </head>
 <body>
     <header>
@@ -86,11 +109,12 @@ header .menu{
             <a class="Logo"><h1>WeeFit</h1></a>
         </div>
         <ul class="menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="../Pages/Workout.html">Workouts</a></li>
                 <li><a href="../Pages/Nutrition.html">Nutrition</a></li>
                 <li><a href="../Pages/conatct.html">Contact Us</a></li>
                 <li><a href="../Pages/BMI.html">About You</a></li>
+                <li><a href="../Pages/Transformation.html">Transformation</a></li>
         </ul>      
         <div class="Tail">
             <a href="../Pages/About_US.html">About US</a>
@@ -101,20 +125,33 @@ header .menu{
             <img src="../Images/Contact.jpg">
         </div>
         <div class="Icons">
-            <div class="Email">
+            <div class="Icon-Conatiner">
                 <i class="fa fa-envelope fa-3x" aria-hidden="true"></i>
+                <div class="info-box">
+                    weefit@gmail.com
+                </div>
             </div>
-            <div class="Instagram">
+            <div class="Icon-Conatiner">
                 <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                <div class="info-box">
+                    WeeFitFitness
+                </div>
             </div>
-            <div class="Facebook">
+            <div class="Icon-Conatiner">
                 <i class="fa fa-facebook fa-3x" aria-hidden="true"></i>
+                <div class="info-box">WeeFitFitness</div>
             </div>
-            <div class="Twitter">
+            <div class="Icon-Conatiner">
                 <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+                <div class="info-box">
+                @Weefit8743
+                </div>
             </div>
-            <div class="Cell">
+            <div class="Icon-Conatiner">
                 <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
+                <div class="info-box">
+                    +1 (999) 923-4642
+                </div>
             </div>
         </div>
     </div>
